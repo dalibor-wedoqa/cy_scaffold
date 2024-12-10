@@ -6,8 +6,8 @@ Cypress.Commands.add("login", (fixtureFileName = "defaultUser") => {
 	// Load credentials from the specified fixture file
 	cy.fixture(fixtureFileName).then((user) => {
 		// Fill in the login form
-		cy.get("#login-username", { timeout: 20000 }).fill(user.username);
-		cy.get("#login-pwd").fill(user.password);
+		cy.get("#login-username", { timeout: 20000 }).put(user.username);
+		cy.get("#login-pwd").put(user.password);
 
 		// Submit the login form
 		cy.get("#login-submit").click();
